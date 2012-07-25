@@ -15,12 +15,70 @@ with 'Pod::Weaver::Role::Section';
 use String::Formatter;
 
 # debugging...
-#use Smart::Comments '###';
+use Smart::Comments '###';
 
-=required_method codes
+=method codes
 
-This method should return a hashref of codes suitable to building a
-L<String::Formatter> with.
+This method returns a hashref of codes suitable to building a
+L<String::Formatter> with.  For our list of codes, see OVERVIEW, below.
+
+Sections consuming this role should consider creating a C<additional_codes>
+method, as codes returned by that method will be merged in with our default
+codes.  C<additional_codes> should return a list, not a hashref.
+
+Of course, the choice is yours.
+
+=head1 CODES
+
+We provide the following codes:
+
+=begin :list
+
+* %v - distribution version
+
+* %d - distribution name
+
+* %p - package name
+
+* %{mm} - "main module" name
+
+* %{tf} - "trial flag", e.g. "-TRIAL" if trial, an empty string if not
+
+* %t - a tab
+
+* %n - a newline
+
+=end :list
+
+=cut
+
+sub codes {
+    my ($self) = @_;
+
+    my %codes = (
+        V => sub { shift->{version} },
+        d => sub { shift->{zilla}->name },
+
+        mm => sub { shift->{zilla}->main_module },
+        tf => sub { shift->{zilla}->is_trial ? '-TRIAL' : q{} },
+
+        n => sub { "\n" },
+        t => sub { "\t" },
+        
+        p => sub { shift
+            ->{ppi_document}
+            ->find_first('PPI::Statement::Package')
+            ->namespace
+            ;
+        },
+
+        $self->additional_codes,
+    );
+
+    return \%codes;
+}
+
+sub additional_codes { () }
 
 =attr formatter
 
@@ -117,6 +175,7 @@ sub build_content {
 
     # we're going to make the assumption here that we always end up with text.
 
+    ### keys input: keys %$input
     my $text       = $self->format_section($input);
     my @paragraphs; # = ();
     my $paragraph  = q{};
@@ -136,7 +195,8 @@ sub build_content {
         else {
 
             ### append: $line
-            $paragraph .= $line;
+            $line =~ s/\s+$/ /;
+            $paragraph .= "$line ";
         }
     }
     push @paragraphs, $paragraph

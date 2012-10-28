@@ -9,13 +9,13 @@ sub default_format { 'Hi there %n, remember to eat your pears!' }
 
 sub default_section_name { 'PEARS!' }
 
-sub codes {
+sub additional_codes {
     my ($self) = @_;
 
-    return {
+    return (
 
         n => sub { shift->{name} },
-    }
+    );
 }
 
 __PACKAGE__->meta->make_immutable;

@@ -33,13 +33,16 @@ sub additional_codes {
 
     return (
         # repository url
-        r => sub { 'repo' },
+        #r => sub { 'repo' },
         # issue tracker url
         i => sub { shift->{distmeta}->{resources}->{bugtracker}->{web} },
         #vcs_url => sub { shift->{distmeta}->{resources}->{}->{web} },
         #R => sub { $_r->(shift)->{shift} },
+        X => sub { 'ARGH' },
         R => sub { #shift->{distmeta}->{resources}->{repository}->{shift} },
-            ### @_
+            # ## @_
+            ### $_[0]->{distmeta}
+            ### $_[1]
             $_r->(shift)->{shift}; },
         #R => sub { $_r->(shift)->{shift} },
         #vcs_type => sub { $_r->(shift)->{type} },

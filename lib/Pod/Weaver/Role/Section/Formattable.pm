@@ -15,7 +15,7 @@ with 'Pod::Weaver::Role::Section';
 use String::Formatter;
 
 # debugging...
-use Smart::Comments '###';
+#use Smart::Comments '###';
 
 =method codes
 
@@ -59,12 +59,12 @@ sub codes {
         V => sub { shift->{version} },
         d => sub { shift->{zilla}->name },
 
-        mm => sub { shift->{zilla}->main_module },
-        tf => sub { shift->{zilla}->is_trial ? '-TRIAL' : q{} },
+        #mm => sub { shift->{zilla}->main_module },
+        #tf => sub { shift->{zilla}->is_trial ? '-TRIAL' : q{} },
 
         n => sub { "\n" },
         t => sub { "\t" },
-        
+
         p => sub { shift
             ->{ppi_document}
             ->find_first('PPI::Statement::Package')

@@ -7,8 +7,9 @@ use namespace::autoclean;
 use MooseX::AttributeShortcuts;
 use MooseX::CurriedDelegation;
 use MooseX::Types::Common::String ':all';
-use Moose::Autobox;
 use Moose::Util::TypeConstraints 'class_type';
+
+use autobox::Core;
 
 with 'Pod::Weaver::Role::Section';
 

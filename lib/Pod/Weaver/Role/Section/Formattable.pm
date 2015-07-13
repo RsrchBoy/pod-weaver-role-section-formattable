@@ -49,6 +49,12 @@ We provide the following codes:
 
 * %n - a newline
 
+* %{bugtracker} - aka resources.bugtracker (from Dist::Zilla meta)
+
+* %{homepage} - aka resources.homepage (from Dist::Zilla meta)
+
+* %{repository} - aka resources.repository (from Dist::Zilla meta)
+
 =end :list
 
 =cut
@@ -56,12 +62,18 @@ We provide the following codes:
 sub codes {
     my ($self) = @_;
 
+    my $_resources = sub { $_[1]->{zilla}->distmeta->{resources}->{$_[0]} };
+
     my %codes = (
         V => sub { shift->{version} },
         d => sub { shift->{zilla}->name },
 
-        #mm => sub { shift->{zilla}->main_module },
-        #tf => sub { shift->{zilla}->is_trial ? '-TRIAL' : q{} },
+        mm => sub { shift->{zilla}->main_module },
+        tf => sub { shift->{zilla}->is_trial ? '-TRIAL' : q{} },
+
+        bugtracker => sub { $_resources->(bugtracker => @_) },
+        homepage   => sub { $_resources->(homepage   => @_) },
+        repository => sub { $_resources->(repository => @_) },
 
         n => sub { "\n" },
         t => sub { "\t" },

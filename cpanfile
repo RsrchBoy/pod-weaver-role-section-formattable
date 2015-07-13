@@ -6,7 +6,6 @@ requires "MooseX::AttributeShortcuts" => "0";
 requires "MooseX::CurriedDelegation" => "0";
 requires "MooseX::Types::Common::String" => "0";
 requires "Pod::Weaver::Role::Section" => "0";
-requires "Smart::Comments" => "0";
 requires "String::Formatter" => "0";
 requires "namespace::autoclean" => "0";
 requires "perl" => "5.006";

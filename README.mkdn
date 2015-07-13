@@ -8,7 +8,7 @@ Pod::Weaver::Role::Section::Formattable - Role for a formattable section
 
 # VERSION
 
-This document describes version 0.001 of Pod::Weaver::Role::Section::Formattable - released July 12, 2015 as part of Pod-Weaver-Role-Section-Formattable.
+This document describes version 0.000\_01 of Pod::Weaver::Role::Section::Formattable - released July 12, 2015 as part of Pod-Weaver-Role-Section-Formattable.
 
 # OVERVIEW
 

@@ -1,11 +1,12 @@
-requires "Moose::Autobox" => "0.10";
 requires "Moose::Role" => "0";
 requires "Moose::Util::TypeConstraints" => "0";
 requires "MooseX::AttributeShortcuts" => "0";
 requires "MooseX::CurriedDelegation" => "0";
+requires "MooseX::RelatedClasses" => "0";
 requires "MooseX::Types::Common::String" => "0";
 requires "Pod::Weaver::Role::Section" => "0";
 requires "String::Formatter" => "0";
+requires "autobox::Core" => "0";
 requires "namespace::autoclean" => "0";
 requires "perl" => "5.006";
 

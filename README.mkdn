@@ -8,7 +8,7 @@ Pod::Weaver::Role::Section::Formattable - Role for a formattable section
 
 # VERSION
 
-This document describes version 0.001 of Pod::Weaver::Role::Section::Formattable - released July 12, 2015 as part of Pod-Weaver-Role-Section-Formattable.
+This document describes version 0.002 of Pod::Weaver::Role::Section::Formattable - released July 13, 2015 as part of Pod-Weaver-Role-Section-Formattable.
 
 # OVERVIEW
 
@@ -87,6 +87,9 @@ We provide the following codes:
 - %{tf} - "trial flag", e.g. "-TRIAL" if trial, an empty string if not
 - %t - a tab
 - %n - a newline
+- %{bugtracker} - aka resources.bugtracker (from Dist::Zilla meta)
+- %{homepage} - aka resources.homepage (from Dist::Zilla meta)
+- %{repository} - aka resources.repository (from Dist::Zilla meta)
 
 # BUGS
 

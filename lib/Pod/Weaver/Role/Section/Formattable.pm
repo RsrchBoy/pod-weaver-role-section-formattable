@@ -230,7 +230,7 @@ __END__
 
 =head1 OVERVIEW
 
-This role is consumed by sections that operate through the mechanisim of
+This role is consumed by sections that operate through the mechanism of
 L<String::Formatter>, namely that they take a format and input data, and
 generate a top-level section from that.
 

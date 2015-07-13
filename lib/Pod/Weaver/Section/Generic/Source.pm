@@ -8,9 +8,6 @@ use MooseX::AttributeShortcuts;
 
 with 'Pod::Weaver::Role::Section::Formattable';
 
-# debugging...
-use Smart::Comments '###';
-
 sub default_section_name { 'SOURCE' }
 
 sub default_format {

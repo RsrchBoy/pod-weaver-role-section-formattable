@@ -2,6 +2,6 @@
 
 =head1 PEARS!
 
-Hi there Super Baby, remember to eat your pears!
+Hi there Super Baby, remember to eat your pears! 
 
 =cut

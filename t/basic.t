@@ -17,6 +17,8 @@ use Pod::Elemental::Transformer::Nester;
 
 use Pod::Weaver;
 
+use lib 't/lib';
+
 my %TESTS = (
     basic => 1,
     multi => 2,

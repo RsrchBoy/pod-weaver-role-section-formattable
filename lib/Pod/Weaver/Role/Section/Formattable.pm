@@ -6,14 +6,16 @@ use Moose::Role;
 use namespace::autoclean;
 use MooseX::AttributeShortcuts;
 use MooseX::CurriedDelegation;
+use MooseX::RelatedClasses;
 use MooseX::Types::Common::String ':all';
 use Moose::Util::TypeConstraints 'class_type';
 
 use autobox::Core;
+use String::Formatter;
 
 with 'Pod::Weaver::Role::Section';
 
-use String::Formatter;
+related_class name => 'String::Formatter', namespace => undef;
 
 # debugging...
 #use Smart::Comments '###';
@@ -107,7 +109,7 @@ with the C<$input> taken from C<weave_section>.
 sub default_formatter {
     my $self = shift @_;
 
-    return String::Formatter->new({
+    return $self->string__formatter_class->new({
         input_processor => 'require_single_input',
         string_replacer => 'method_replace',
         codes           => $self->codes,
